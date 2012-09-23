@@ -31,6 +31,7 @@ package paso.dyndns.info.MJSC
 		{
 			removeEventListener(Event.ADDED_TO_STAGE, init);
 			// entry point
+			//git test
 			
 			
 			var backMC:Sprite=new Sprite();
