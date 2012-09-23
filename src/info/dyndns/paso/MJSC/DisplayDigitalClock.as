@@ -1,4 +1,4 @@
-package paso.dyndns.info.MJSC
+package info.dyndns.paso.MJSC
 {
 	import flash.display.MovieClip;
 	import flash.display.Sprite;
@@ -9,7 +9,7 @@ package paso.dyndns.info.MJSC
 	import flash.text.TextFormat;
 	import flash.utils.Timer;
 	
-	import paso.dyndns.info.MJSC.GlobalData;
+	import info.dyndns.paso.MJSC.GlobalData;
 	
 	
 	public final class DisplayDigitalClock extends PartDisplay

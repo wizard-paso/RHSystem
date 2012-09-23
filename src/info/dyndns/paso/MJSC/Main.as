@@ -1,4 +1,4 @@
-package paso.dyndns.info.MJSC 
+package info.dyndns.paso.MJSC 
 {
 
 	
@@ -9,7 +9,7 @@ package paso.dyndns.info.MJSC
 	import flash.geom.ColorTransform;
 	import flash.text.TextField;
 	
-	import paso.dyndns.info.Network.*;
+	import info.dyndns.paso.Network.*;
 	
 	/**
 	 * ...
@@ -31,7 +31,6 @@ package paso.dyndns.info.MJSC
 		{
 			removeEventListener(Event.ADDED_TO_STAGE, init);
 			// entry point
-			//git test
 			
 			
 			var backMC:Sprite=new Sprite();

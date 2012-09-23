@@ -1,4 +1,4 @@
-package paso.dyndns.info.MJSEvent
+package info.dyndns.paso.MJSEvent
 {
 	import flash.events.Event;
 	

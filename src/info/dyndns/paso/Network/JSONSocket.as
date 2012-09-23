@@ -1,9 +1,9 @@
-package paso.dyndns.info.Network
+package info.dyndns.paso.Network
 {
 	import flash.events.*;
 	import flash.net.Socket;
 	import flash.sampler.Sample;
-	import paso.dyndns.info.MJSEvent.*;
+	import info.dyndns.paso.MJSEvent.*;
 
 	public class JSONSocket extends Socket
 	{

@@ -1,4 +1,4 @@
-package paso.dyndns.info.MJSC  
+package info.dyndns.paso.MJSC  
 {
 	import flash.display.MovieClip;
 	import flash.display.Sprite;
@@ -7,7 +7,7 @@ package paso.dyndns.info.MJSC
 	import flash.text.TextField;
 	import flash.utils.ByteArray;
 	
-	import paso.dyndns.info.MJSEvent.*;
+	import info.dyndns.paso.MJSEvent.*;
 	
 	/**
 	 * ...
