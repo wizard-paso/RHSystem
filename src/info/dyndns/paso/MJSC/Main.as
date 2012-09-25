@@ -1,15 +1,15 @@
 package info.dyndns.paso.MJSC 
 {
-
-	
 	import flash.display.MovieClip;
 	import flash.display.Sprite;
-	import flash.events.Event;
-	import flash.events.MouseEvent;
+	import flash.events.*;
 	import flash.geom.ColorTransform;
-	import flash.text.TextField;
+	import flash.text.*;
+	import flash.ui.Keyboard;
 	
+	import info.dyndns.paso.Keyboard.KeyboardInput;
 	import info.dyndns.paso.Network.*;
+	import info.dyndns.paso.Data.GlobalData;
 	
 	/**
 	 * ...
@@ -23,14 +23,17 @@ package info.dyndns.paso.MJSC
 		
 		public function Main():void 
 		{
-			if (stage) init();
+			if (stage) init();//ステージが読まれたかどうか｡これがなければstageクラスを参照できない｡
 			else addEventListener(Event.ADDED_TO_STAGE, init);
 		}
 		
 		private function init(event:Event = null):void 
 		{
-			removeEventListener(Event.ADDED_TO_STAGE, init);
+			GlobalData.stage=stage;
+			
+			removeEventListener(Event.ADDED_TO_STAGE, init);	//ステージ追加判断のリスナーを削除
 			// entry point
+			
 			
 			
 			var backMC:Sprite=new Sprite();
@@ -42,8 +45,10 @@ package info.dyndns.paso.MJSC
 			var coverMC:Sprite=new Sprite();
 			addChild(coverMC);
 			
+
 			
 			
+			var keyboardInput:KeyboardInput=new KeyboardInput();
 			
 			/*debug
 			var col:ColorTransform=new ColorTransform();
@@ -51,7 +56,7 @@ package info.dyndns.paso.MJSC
 			background.setColor(col);
 			*/
 			
-			//var background:DisplayBackground=new DisplayBackground(mainMC);
+			var background:DisplayBackground=new DisplayBackground(mainMC);
 			
 			var terop:DisplayTerop = new DisplayTerop(mainMC);
 			
@@ -67,6 +72,32 @@ package info.dyndns.paso.MJSC
 			//var controller:DisplayController=new DisplayController(coverMC);
 			
 			var network:Network=new Network();
+			
+			
+			
+			enableDebugConsole();
+			
+			function enableDebugConsole():void{
+				var debugConsole:TextField=new TextField();
+				debugConsole.type=TextFieldType.INPUT;
+				addChild(debugConsole);
+				
+				debugConsole.addEventListener(KeyboardEvent.KEY_UP,function(event:KeyboardEvent){
+					if(event.keyCode==13){//エンターキーが押下されたときにデバッグコマンド実行
+						var consoleSplit:Array=debugConsole.text.split("::");
+						debugConsole.text="";
+						switch(consoleSplit[0]){
+							case "keyboardModeChange":
+								keyboardInput.mode=consoleSplit[1];
+								break;
+							
+						}
+						
+					}
+				});
+			}//debugここまで
+			
+			
 		}
 	}
 }
