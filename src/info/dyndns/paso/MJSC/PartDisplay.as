@@ -11,18 +11,18 @@ package info.dyndns.paso.MJSC
 	 */
 	internal class PartDisplay
 	{
-		private var mc:MovieClip;
+		private var _mc:MovieClip;
 		private var baseMC:Sprite;
 		
 		
-		public function PartDisplay(mc:MovieClip,baseMC:Sprite) 
+		public function PartDisplay(_mc:MovieClip,baseMC:Sprite) 
 		{
-			this.mc = mc;
+			this._mc = _mc;
 			this.baseMC = baseMC;
-			baseMC.addChild(mc);
+			baseMC.addChild(_mc);
 		}
-		public function get $mc():MovieClip{
-			return mc;
+		public function get mc():MovieClip{
+			return _mc;
 		}
 		
 		/*public function setVisible() {//MCの表示を消す

@@ -3,6 +3,7 @@ package info.dyndns.paso.MJSC
 	import flash.display.MovieClip;
 	import flash.display.Sprite;
 	import flash.events.Event;
+	import info.dyndns.paso.Data.GlobalData;
 	
 	public final class DisplayAnalogClock extends PartDisplay
 	{

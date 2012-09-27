@@ -7,7 +7,7 @@ package info.dyndns.paso.MJSC
 	import flash.text.*;
 	import flash.ui.Keyboard;
 	
-	import info.dyndns.paso.Keyboard.KeyboardInput;
+	import info.dyndns.paso.Keyboard.KeyboardListener;
 	import info.dyndns.paso.Network.*;
 	import info.dyndns.paso.Data.GlobalData;
 	
@@ -48,7 +48,7 @@ package info.dyndns.paso.MJSC
 
 			
 			
-			var keyboardInput:KeyboardInput=new KeyboardInput();
+			
 			
 			/*debug
 			var col:ColorTransform=new ColorTransform();
@@ -69,7 +69,9 @@ package info.dyndns.paso.MJSC
 			
 			//var analogClock:DisplayAnalogClock=new DisplayAnalogClock(mainMC);
 			
-			//var controller:DisplayController=new DisplayController(coverMC);
+			var controller:DisplayController=new DisplayController(coverMC);
+			
+			var keyboardInput:KeyboardListener=new KeyboardListener(controller);
 			
 			var network:Network=new Network();
 			

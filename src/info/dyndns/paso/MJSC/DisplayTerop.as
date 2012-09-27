@@ -8,6 +8,7 @@ package info.dyndns.paso.MJSC
 	import flash.utils.ByteArray;
 	
 	import info.dyndns.paso.MJSEvent.*;
+	import info.dyndns.paso.Data.*;
 	
 	/**
 	 * ...
@@ -22,21 +23,20 @@ package info.dyndns.paso.MJSC
 		
 		public function DisplayTerop(mainMC:Sprite) 
 		{
-			var mc:MovieClip = new TeropMC();//mcはスーパクラスにある
+			var mc:MovieClip = new TeropMC();//mcはスーパクラスにある スーパクラスにゲッタセッタが存在せずにゲットセットするものをつくるときに$をつける｡
 			mc.y = GlobalData.HEIGHT - 100;
 			trace(GlobalData.WIDTH,mc.width)
 			super(mc, mainMC);
 			var displayEventDispatcher:DisplayEventDispatcher=DisplayEventDispatcher.getInstance()//ここはクラス変数でなくローカル変数でいい｡
 				displayEventDispatcher.addEventListener(DisplayEvent.TEROP_EVENT,teropEventHandler);
-				//displayEventDispatcher.debug();
 		}
 		private function teropEventHandler(event:DisplayEvent):void{//DisplayEventDispatcherがイベントを吐くとこれが呼び出される
 			setText(event.data.text);
 			//trace(event.data,"aaaaa");
 		}
 		public function setText(str:String):void {
-			$mc.unTextMC1.unTextMC1.unText2.text = $mc.unTextMC1.unTextMC1.unText1.text = $mc.unTextMC1.unTextMC2.unText1.text;
-			$mc.unTextMC1.unTextMC2.unText2.text = $mc.unTextMC1.unTextMC2.unText1.text = str;//テロップの下に隠れている代替テキストに新規テキストを挿入
+			mc.unTextMC1.unTextMC1.unText2.text = mc.unTextMC1.unTextMC1.unText1.text = mc.unTextMC1.unTextMC2.unText1.text;
+			mc.unTextMC1.unTextMC2.unText2.text = mc.unTextMC1.unTextMC2.unText1.text = str;//テロップの下に隠れている代替テキストに新規テキストを挿入
 			
 			/*
 			 var test:TextField=new TextField();//のちに試す
@@ -46,30 +46,30 @@ test.autoSize=TextFieldAutoSize.LEFT
 
 			
 				var textByte:ByteArray=new ByteArray();
-				textByte.writeMultiByte($mc.unTextMC1.unTextMC2.unText1.text,"shift-jis");//シフトJISエンコードで文字の大きさをカウントする
+				textByte.writeMultiByte(mc.unTextMC1.unTextMC2.unText1.text,"shift-jis");//シフトJISエンコードで文字の大きさをカウントする
 				if (textByte.length>23) {//テキストボックスのWIDTHカウントでもできるような気はするが、元からテキストが入ってるので今は難しい、要検討。　また、動きもいずれプログラマブルに作る
 					slideMax=(textByte.length-23)*GlobalData.WIDTH/24/2;//960/24で1文字40pix｡よって1文字あたり半分の20動かす｡はみ出た部分/2の値
-					$mc.removeEventListener(Event.ENTER_FRAME,slideText);
-					$mc.addEventListener(Event.ENTER_FRAME, slideText);
+					mc.removeEventListener(Event.ENTER_FRAME,slideText);
+					mc.addEventListener(Event.ENTER_FRAME, slideText);
 
 
 				} else {
-					$mc.removeEventListener(Event.ENTER_FRAME,slideText);
+					mc.removeEventListener(Event.ENTER_FRAME,slideText);
 				}
 				
-				$mc.unTextMC1.gotoAndPlay(1);
-				$mc.unTextMC2.gotoAndPlay(1);
+				mc.unTextMC1.gotoAndPlay(1);
+				mc.unTextMC2.gotoAndPlay(1);
 				
 						
 					var count:int=0
 				function slideText(event:Event):void {
-					$mc.unTextMC1.x-=3;
-					$mc.unTextMC2.x -= 3;
-					if ($mc.unTextMC1.x + slideMax + GlobalData.WIDTH < 0) {
-						$mc.unTextMC1.x=$mc.unTextMC2.x+GlobalData.WIDTH+slideMax*2;//ここらてすとすること
+					mc.unTextMC1.x-=3;
+					mc.unTextMC2.x -= 3;
+					if (mc.unTextMC1.x + slideMax + GlobalData.WIDTH < 0) {
+						mc.unTextMC1.x=mc.unTextMC2.x+GlobalData.WIDTH+slideMax*2;//ここらてすとすること
 					}	
-					if ($mc.unTextMC2.x+slideMax+GlobalData.WIDTH<0) {
-						$mc.unTextMC2.x=$mc.unTextMC1.x+GlobalData.WIDTH+slideMax*2;
+					if (mc.unTextMC2.x+slideMax+GlobalData.WIDTH<0) {
+						mc.unTextMC2.x=mc.unTextMC1.x+GlobalData.WIDTH+slideMax*2;
 				}
 			}
 		}

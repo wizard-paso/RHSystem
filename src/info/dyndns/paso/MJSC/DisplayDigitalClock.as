@@ -9,7 +9,8 @@ package info.dyndns.paso.MJSC
 	import flash.text.TextFormat;
 	import flash.utils.Timer;
 	
-	import info.dyndns.paso.MJSC.GlobalData;
+	import info.dyndns.paso.Data.GlobalData;
+	import info.dyndns.paso.Data.GlobalData;
 	
 	
 	public final class DisplayDigitalClock extends PartDisplay
