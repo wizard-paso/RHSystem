@@ -1,10 +1,11 @@
-package info.dyndns.paso.Network
+package info.dyndns.paso.network
 {
 	import flash.events.*;
 	import flash.net.Socket;
 	import flash.sampler.Sample;
 	
-	import info.dyndns.paso.MJSEvent.*;
+	import info.dyndns.paso.data.GlobalData;
+	import info.dyndns.paso.mjsevent.*;
 
 	public class JSONSocket extends Socket
 	{
@@ -29,16 +30,18 @@ package info.dyndns.paso.Network
 		public function JSONSend(value:Object):void{
 			try{
 				trace("send: "+JSON.stringify(value))
-					send(JSON.stringify(value));
+					send(JSON.stringify(value));	//ここで接続確認を行う?	接続されてなかったらローカルに直接飛ばすとか｡
 				}catch(error:Error){
 					trace(error.toString());
 				}
 		}
 		private function connectHandler(event:Event):void{
-			JSONSend({"type":"message" as String,"text":"\naiueo" as String})
-			//trace("send")
+			//JSONSend({"type":"message" as String,"text":"\naiueo" as String})
+			GlobalData.network=true;
+			trace(Event.CONNECT)
 		}
 		private function closeHandler(event:Event):void{
+			GlobalData.network=false;
 			trace(Event.CLOSE);
 		}
 		private function socketDataHandler(event:ProgressEvent):void{

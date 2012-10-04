@@ -1,9 +1,9 @@
-package info.dyndns.paso.MJSC
+package info.dyndns.paso.mjsc
 {
 	import flash.display.MovieClip;
 	import flash.display.Sprite;
 	import flash.geom.ColorTransform;
-	import info.dyndns.paso.MJSEvent.*;
+	import info.dyndns.paso.mjsevent.*;
 		
 		
 	public final class DisplayBackground extends PartDisplay

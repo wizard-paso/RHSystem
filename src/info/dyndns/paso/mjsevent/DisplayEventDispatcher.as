@@ -1,8 +1,8 @@
-package info.dyndns.paso.MJSEvent	
+package info.dyndns.paso.mjsevent	
 {
 	import flash.events.Event;
 	import flash.events.EventDispatcher;
-	import info.dyndns.paso.MJSEvent.DisplayEvent;
+	import info.dyndns.paso.mjsevent.DisplayEvent;
 	public class DisplayEventDispatcher extends EventDispatcher
 	{
 		private static var instance:DisplayEventDispatcher;

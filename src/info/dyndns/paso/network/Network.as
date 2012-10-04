@@ -1,9 +1,9 @@
-package info.dyndns.paso.Network
+package info.dyndns.paso.network
 {
 	import flash.events.*;
 	import flash.net.NetConnection;
 	import flash.net.Socket;
-	import info.dyndns.paso.MJSEvent.DisplayEventDispatcher;
+	import info.dyndns.paso.mjsevent.DisplayEventDispatcher;
 	
 	
 	public class Network

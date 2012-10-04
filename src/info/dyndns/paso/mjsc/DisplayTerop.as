@@ -1,4 +1,4 @@
-package info.dyndns.paso.MJSC  
+package info.dyndns.paso.mjsc  
 {
 	import flash.display.MovieClip;
 	import flash.display.Sprite;
@@ -7,8 +7,8 @@ package info.dyndns.paso.MJSC
 	import flash.text.TextField;
 	import flash.utils.ByteArray;
 	
-	import info.dyndns.paso.MJSEvent.*;
-	import info.dyndns.paso.Data.*;
+	import info.dyndns.paso.mjsevent.*;
+	import info.dyndns.paso.data.*;
 	
 	/**
 	 * ...

@@ -1,4 +1,4 @@
-package info.dyndns.paso.Network
+package info.dyndns.paso.network
 {
 	import flash.net.Socket;
 

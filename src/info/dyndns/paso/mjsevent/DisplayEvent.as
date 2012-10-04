@@ -1,4 +1,4 @@
-package info.dyndns.paso.MJSEvent
+package info.dyndns.paso.mjsevent
 {
 	import flash.events.Event;
 	
@@ -6,7 +6,7 @@ package info.dyndns.paso.MJSEvent
 	{
 				public static const TEROP_EVENT :String ='TEROP_EVENT';
 				public static const SUB_TEROP_EVENT:String = "SUB_TEROP_EVENT";
-				public static const COLOR_EVENT:String = "COLOR_EVENT";//右側はJSONによって受信するイベント名にする
+				public static const COLOR_EVENT:String = "COLOR_EVENT";//右側はJSONによって受信するイベント名にする ｡左側は各Display要素がイベント受信登録するためのもの｡
 				
 				
 				//↑イベント名をここに記述する

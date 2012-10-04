@@ -1,4 +1,4 @@
-package info.dyndns.paso.Data
+package info.dyndns.paso.data
 {
 	import flash.display.Stage;
 	
@@ -12,9 +12,17 @@ package info.dyndns.paso.Data
 		public static const HEIGHT:uint = 540;
 		public static var stage:Stage=null;//デフォルトnullにしておく
 		
+		private static var _network:Boolean=false;
+		
 		public function GlobalData() 
 		{
 			
+		}
+		public static function get network():Boolean{
+			return _network;
+		}
+		public static function set network(value:Boolean):void{
+			_network=value;
 		}
 		
 	}

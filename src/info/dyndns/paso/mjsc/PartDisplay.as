@@ -1,4 +1,4 @@
-package info.dyndns.paso.MJSC 
+package info.dyndns.paso.mjsc 
 {
 	import flash.display.MovieClip;
 	import flash.display.SpreadMethod;

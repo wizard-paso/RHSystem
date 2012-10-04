@@ -1,9 +1,9 @@
-package info.dyndns.paso.MJSC
+package info.dyndns.paso.mjsc
 {
 	import flash.display.MovieClip;
 	import flash.display.Sprite;
 	import flash.events.Event;
-	import info.dyndns.paso.Data.GlobalData;
+	import info.dyndns.paso.data.GlobalData;
 	
 	public final class DisplayAnalogClock extends PartDisplay
 	{
