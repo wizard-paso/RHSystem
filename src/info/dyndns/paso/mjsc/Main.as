@@ -45,11 +45,6 @@ package info.dyndns.paso.mjsc
 			var coverMC:Sprite=new Sprite();
 			addChild(coverMC);
 			
-
-			
-			
-			
-			
 			/*debug
 			var col:ColorTransform=new ColorTransform();
 			col.color=0xFF0000;

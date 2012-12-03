@@ -55,7 +55,6 @@ package info.dyndns.paso.network
 				case "event":
 					for(var eventType:String in json.data){
 						displayEventDispatcher.dispatchEvent(new DisplayEvent(eventType,json.data[eventType]));//eventTypeをそのままイベント名にする｡中身をデータとして受け渡す
-						trace(eventType,json.data[eventType])
 					}
 					//json.data
 					/*if(json.data.terop){
@@ -64,8 +63,6 @@ package info.dyndns.paso.network
 					if(json.data.color){
 						displayEventDispatcher.dispatchEvent(new DisplayEvent(DisplayEvent.COLOR_EVENT,json.data.color));
 					}*/
-					
-					
 					
 					break;
 				case "test":
