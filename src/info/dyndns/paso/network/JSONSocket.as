@@ -18,8 +18,22 @@ package info.dyndns.paso.network
 			addEventListener(Event.CLOSE,closeHandler);
 			addEventListener(ProgressEvent.SOCKET_DATA, socketDataHandler);
 			addEventListener(IOErrorEvent.IO_ERROR,ioErrorHandler);
-			displayEventDispatcher=DisplayEventDispatcher.getInstance()//ここはクラス変数でなくローカル変数でいい｡
+			addEventListener(SecurityErrorEvent.SECURITY_ERROR,securityErrorHandler);
+			displayEventDispatcher=DisplayEventDispatcher.getInstance();
 			//displayEventDispatcher.debug();
+			var networkEventDispatcher:NetworkEventDispatcher=NetworkEventDispatcher.getInstance()//ここはクラス変数でなくローカル変数でいい｡
+			networkEventDispatcher.addEventListener(NetworkEvent.EVENT,networkEventHandler);
+		}
+		
+		/**
+		 * ネットに送信すべきデータを受け取り､ネットワークへと受け渡す
+		 * */
+		private function networkEventHandler(event:NetworkEvent):void{//NetworkEventDispatcherがイベントを吐くとこれが呼び出される
+			trace(event.data.text,"aaaaa");
+			var object:Object={
+				
+			}
+			
 		}
 		//connectメソッドは親のもの(Socket)を使う｡
 		private function send(value:String):void{
@@ -71,6 +85,9 @@ package info.dyndns.paso.network
 		}
 		private function ioErrorHandler(event:IOErrorEvent):void{
 			trace(event.text);
+		}
+		private function securityErrorHandler(event:SecurityErrorEvent):void{
+			trace(event);
 		}
 	}
 }

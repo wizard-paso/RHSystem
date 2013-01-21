@@ -1,5 +1,7 @@
 package info.dyndns.paso.keyboard
 {
+	import fl.events.ComponentEvent;
+	
 	import flash.display.Stage;
 	import flash.events.KeyboardEvent;
 	
@@ -7,6 +9,7 @@ package info.dyndns.paso.keyboard
 	
 	import info.dyndns.paso.data.GlobalData;
 	import info.dyndns.paso.mjsc.DisplayController;
+	import info.dyndns.paso.mjsevent.*;
 	
 	/*
 	StageとTextField両方にリスナーを追加すると､
@@ -32,12 +35,18 @@ package info.dyndns.paso.keyboard
 		
 		private var displayController:DisplayController;
 		
+		private var networkEventDispatcher:NetworkEventDispatcher
+		
 		private var _mode:String=NORMAL;//デフォルトはNORMALとする｡
 		
 		public function KeyboardListener(displayController:DisplayController)//コンストラクタ
 		{
-			this.displayController=displayController
-			GlobalData.stage.addEventListener(KeyboardEvent.KEY_UP , keyUpHandler);
+			this.displayController=displayController;
+			GlobalData.stage.addEventListener(KeyboardEvent.KEY_UP , keyUpHandler);//GlobalDataのstageを参照しないと､nullになる
+			displayController.getMC().addEventListener(ComponentEvent.ENTER,enterHundler);
+			
+			
+			networkEventDispatcher=NetworkEventDispatcher.getInstance();
 		}
 		
 		public function get mode():String{	//modeのゲッタ
@@ -52,7 +61,7 @@ package info.dyndns.paso.keyboard
 		private function keyUpHandler(event:KeyboardEvent):void{
 			switch(_mode){
 				case NORMAL:
-					normalMode(event);
+					//normalMode(event);
 					break;
 				case INPUT:
 					inputMode(event);
@@ -63,11 +72,32 @@ package info.dyndns.paso.keyboard
 			}
 		}
 		
+		//
+		private function enterHundler(event:ComponentEvent):void{
+					var displayControllerData:Object=displayController.getData();
+					
+					
+					if(displayControllerData.emer){
+						
+						//非常時の場合のイベント
+						
+					}else{
+						networkEventDispatcher.dispatchEvent(new NetworkEvent(NetworkEvent.EVENT,{text:displayControllerData.text}));
+					}
+					
+					displayController.clearText();
+		}
+		
 		//どこでTextFieldの中をからっぽにするの??
 		private function normalMode(event:KeyboardEvent):void{
 			//trace("normal mode"+event.keyCode);
 			switch(event.keyCode){
 				case 13:
+
+					//test
+					//break;
+					//test
+
 					//エンター押下後の処理に関して､
 					//KeyboardListenerかこっちが処理するか
 					//KListenerがやる
@@ -87,9 +117,11 @@ package info.dyndns.paso.keyboard
 						
 						//非常時の場合のイベント
 						
-						break;
+
 					}else{
-						
+						if(displayControllerData.text!==""){
+							networkEventDispatcher.dispatchEvent(new NetworkEvent(NetworkEvent.EVENT,displayControllerData.text));
+						}
 					}
 					
 			
@@ -107,7 +139,6 @@ package info.dyndns.paso.keyboard
 					
 					
 					
-					var text:String=displayController.getText();
 					displayController.clearText();
 					
 					//上のtextをどこに運ぶか｡解析するクラスへ運ぶ? そしてnetworkとlocal振り分け? 

@@ -2,6 +2,7 @@ package info.dyndns.paso.mjsc
 {
 	import flash.display.MovieClip;
 	import flash.display.Sprite;
+	
 	import info.dyndns.paso.data.GlobalData;
 	
 	
@@ -28,6 +29,10 @@ package info.dyndns.paso.mjsc
 			}else{//非表示にする場合
 				mc.gotoAndPlay(31);//MCをフレーム31から再生することによりコントロールパネルを下に下げるアニメーションをみせる
 			}
+		}
+		
+		public function getMC():MovieClip{
+			return mc;
 		}
 		//MC内のテキストを取得する
 		public function getText():String{
